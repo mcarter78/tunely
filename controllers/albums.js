@@ -98,7 +98,36 @@ function deathMetal (req, res){
 }
 
 function search (req, res) {
-  res.render("./partials/search");
+  var query = req.query.artistName;
+  Album.find({$where: function() {
+  for (var key in this) {
+  console.log(query);
+    if (this[key] == query) {
+      console.log("true");
+    }
+      console.log("false");
+    }
+  } 
+  }, function (err, data) {
+    if (err) returnError(err);
+    else if (data.length === 0) {
+      console.log('Sorry, there are no albums by that artist.');
+      res.render("./partials/search", {albums: data});
+    } else {
+      res.render("./partials/search", {albums: data});
+    }
+});
+
+  // Album.find({artistName: query}, function (err, data) {
+  //   if (err) {
+  //     returnError(err);
+  //   } else if (data.length === 0) {
+  //     console.log('Sorry, there are no albums by that artist.');
+  //     res.render("./partials/search", {albums: data});
+  //   } else {
+  //     res.render("./partials/search", {albums: data});
+  //   }
+  // });
 }
 
 // shows specific album -- NOT REALLY PRACTICAL UNLESS YOU KNOW THE GENERATED _ID
