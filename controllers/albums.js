@@ -94,7 +94,7 @@ function apiAlbums (req, res){
 }
 
 function deathMetal (req, res){
-  res.render("deathmetal_layout");
+  res.render('./partials/deathmetal_content',{layout: "deathmetal_layout"});
 }
 
 function search (req, res) {
