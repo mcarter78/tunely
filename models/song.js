@@ -6,9 +6,5 @@ var songSchema = mongoose.Schema({
   duration: String
 });
 
-// songSchema.index(
-// 	{trackNumber: "text"}
-// );
-
 module.exports = mongoose.model('Song', songSchema);
 module.exports = songSchema;

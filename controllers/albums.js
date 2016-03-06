@@ -123,7 +123,6 @@ function search (req, res) {
       } else if (songResults.length > 0) {
           searchResults.push.apply(searchResults, songResults);
       }
-      console.log(searchResults);
     });
     res.render("./partials/search", {albums: searchResults, previous_search_value: query});
   } else {

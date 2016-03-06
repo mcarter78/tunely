@@ -2,10 +2,10 @@
 
 /*NAVBAR CSS*/
 .navbar-default .navbar-nav>li>a:hover {
-    color: #00AD85;
+    color: red;
 }
 .navbar-default .navbar-brand:hover {
-    color: #00AD85;
+    color: red;
 }
 
 /*changes navbar font*/
