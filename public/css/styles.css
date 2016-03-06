@@ -258,26 +258,59 @@ ul.navbar-right {
 
 /*SEARCH CSS*/
 
-#white {
+#blank_canvas {
   background-color: white;
+  height: 600px;
 }
-#search_bar_div {
+#search_bar_form {
+  text-align: center;
+  padding-top: 30px;
+}
 
-  margin: 0 auto;
+#search_bar {
+  width: 400px;
+  display: inline-block;
+  font-size: 18px;
 }
-#search-bar {
-  width: 300px;
-}
-#search-button {
+#search_button {
   margin: 10px;
   color: #00AD85;
+  font-size: 16px;
 }
-#search-button:hover {
+#search_button:hover {
   margin: 10px;
   color: white;
   background: #00AD85;
 }
+.search_result_image {
+  height: 240px;
+  width: 240px;
+}
+.search_result_image_link:hover{
+  text-decoration: none;
+  color: black;
+}
+.default_image {
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+}
+.default_image_text{
+    position: relative;
+    top: -130px;
+    margin-bottom: -30px;
+}
+.search_result_image:hover {
+  filter: invert(1);
+  -webkit-filter: invert(1);
+}
+.search_result_album_title {
+  color: black;
+}
 
+.search_result_album_title:hover {
+  color: #00AD85;
+  text-decoration: none;
+}
 
 /* NEW FORM STYLES */
 
