@@ -262,7 +262,6 @@ ul.navbar-right {
   background-color: white;
 }
 #search_bar_div {
-
   margin: 0 auto;
 }
 #search-bar {
@@ -276,6 +275,10 @@ ul.navbar-right {
   margin: 10px;
   color: white;
   background: #00AD85;
+}
+.search_result_image {
+  height: 240px;
+  width: 240px;
 }
 
 

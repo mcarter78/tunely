@@ -8,12 +8,12 @@ var albumSchema = mongoose.Schema({
   photoUrl: String
 });
 
-// albumSchema.createIndex(
-// 	{
-// 		artistName: "text",
-// 		name: "text",
-// 		releaseDate: "text",
-// 	}
-// );
+albumSchema.index(
+	{
+		artistName: "text",
+		name: "text",
+		releaseDate: "text",
+	}
+);
 
 module.exports = mongoose.model('Album', albumSchema);

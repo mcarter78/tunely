@@ -1,12 +1,24 @@
 <div id="blank_canvas">
 	<div id="search_bar_div text-center">
 		<form id="search_bar_form" action="/search" method="get">
-		<input type="text" name="artistName" placeholder="Search by Artist" class="form-control" id="search-bar">
+		<input type="text" name="keyword" placeholder="Search by Artist, Album Title, or Release Year" value="{{previous_search_value}}" class="form-control" id="search-bar">
 		<input type="submit" value="Search" class="btn btn-default" id="search-button">
 		</form>
 	</div>
 	<hr>
 	{{#each albums}}
-	<p> {{name}} {{artistName}} {{releaseDate}} </p>
+	<div class="search_result_div">
+		<div class="search_result_image_div">
+			<a class="header_sm" href="/albums/{{_id}}">
+				<img src="{{photoUrl}}" class="search_result_image">
+			</a>
+		</div>
+		<div class="search_result_text_content">
+			<a class="header_sm" href="/albums/{{_id}}" style="color: black">{{name}}</a>
+			<p class="text_md">{{artistName}}
+			<br>{{releaseDate}}</p>
+		</div>
+	</div>
+	<br>
 	{{/each}}
 </div>
