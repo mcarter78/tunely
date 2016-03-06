@@ -1,0 +1,74 @@
+<form method="POST" action="/albums/{{album._id}}/songs?_method=patch" class="form-horizontal">
+    <div class="table-responsive">
+        <table id="songTable" class="table-bordered">
+        <h2 id="newAlbum">Edit Tracks</h2>
+            <thead>
+                <th style="width:5%">Track#</th>
+                <th style="width:70%">Song Title Name</th>
+                <th style="width:20%">Duration</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="1" required value="{{song.name}}"/></td>
+                    <td><input type="text" name="title" class="form-control" required value="{{song.title}}"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="2"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="3"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="4"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                 <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="5"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                 <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="6"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                 <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="7"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                 <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="8"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                 <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="9"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+                 <tr>
+                    <td><input type="text" name="trackNumber" class="form-control" value="10"/></td>
+                    <td><input type="text" name="title" class="form-control"/></td>
+                    <td><input type="text" class="form-control"/></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <div class="form-group">
+            <div class="text-center">
+                <button id="saveAlbumBtn">Update Tracks</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

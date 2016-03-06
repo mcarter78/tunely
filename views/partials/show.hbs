@@ -1,0 +1,35 @@
+<div id="showpage_container">
+	<div id="showpage_image_div">
+		<div id="return_to_albums_button_div">
+			<a href="/albums" class="btn btn-default" id="return_to_albums_button">Return to all albums</a>
+		</div>
+		<img src={{album.photoUrl}} id="showpage_image">
+		<div id="showpage_edit_buttons_div">
+
+			<a href="/albums/{{album._id}}/edit" class="btn btn-default showpage_edit_button" id="edit_album_button">Edit Album</a>
+			<form id="deleteAlbumForm" method="POST" action="/albums/{{album._id}}?_method=delete" class="form-horizontal">
+				<input type="button" id="showpage_delete_button" value="Delete Album"/>
+			</form>
+		</div>
+	</div>
+
+		<div id="showpage_content_div">
+			<div class="showpage_album_details">
+				
+				<h2 class="header_md album_detail_title">{{album.name}}</h2>
+				<p class="text_md album_detail"><span style="font-weight: bold">Artist: </span>{{album.artistName}}</p>
+				<p class="text_md album_detail"><span style="font-weight: bold">Release Date: </span>{{album.releaseDate}}</p>
+		</div>
+
+		<!-- use each method to list songs -->
+		<div class="showpage_song_details text_md">
+			<h2 class="header_sm album_detail_title">Songs</h2>
+
+			<ul>
+				{{#each album.songList}}
+					<li class="songList">{{this.trackNumber}} {{this.title}} duration:{{this.duration}}</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</div>
