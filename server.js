@@ -23,6 +23,14 @@ app.set('view engine', 'hbs');
 
 var hbs = require('hbs');
 var hbsutils = require('hbs-utils')(hbs);
+// KEEP FOR NOW
+// hbs.registerHelper("searchResultsPresent", function(query) {
+//   if (query === "") {
+//   	return true;
+//   } else {
+//   	return false;
+//   }
+// });
 hbs.registerPartials(__dirname + '/views/partials');
 
 hbsutils.registerWatchedPartials(__dirname + '/views/partials');

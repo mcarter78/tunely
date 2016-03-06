@@ -8,10 +8,6 @@
 //var Album = require('../../models/album');
 
 
-
-
-
-
 $(document).ready(function() {
   console.log('app.js loaded!');
   var app = new App();

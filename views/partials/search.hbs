@@ -1,7 +1,35 @@
-<div id="search_bar_div text-center">
-	<form id="search_bar_form" action="" method="">
-	<input type="text" name="artistName" placeholder="Search by Artist" class="form-control" id="search-bar">
-	<input type="submit" value="Search" class="btn btn-default" id="search-button">
-	</form>
+<div id="blank_canvas">
+	<div id="search_bar_div text-center">
+		<form id="search_bar_form" action="/search" method="get">
+		<input type="text" name="keyword" placeholder="Artist, Track Name, Album Title, Release Date" value="{{previous_search_value}}" class="form-control" id="search_bar">
+		<input type="submit" value="Search" class="btn btn-default" id="search_button">
+		</form>
+	</div>
+	{{#unless albums}}
+			<br>
+			<p class="header_sm text-center" style="color: #00AD85">0 search results found for "{{previous_search_value}}"</p>
+	{{/unless}}
+<br>
+<br>
+	{{#each albums}}
+	<div class="search_result_div col-sm-4 text-center">
+		<div class="search_result_image_div">
+			<a class="header_sm search_result_image_link" href="/albums/{{_id}}">
+				{{#if photoUrl}}
+					<img src="{{photoUrl}}" class="search_result_image">
+				{{else}}
+					<div class="default_image_div">
+						<img src="/images/bright-cover-art.png" class="search_result_image default_image">
+						<p class="header_sm default_image_text" style="color: white">Album Art Missing</p>
+					</div>
+				{{/if}}
+			</a>
+		</div>
+		<div class="search_result_text_content">
+			<a class="header_sm search_result_album_title" href="/albums/{{_id}}">{{name}}</a>
+			<p class="text_md">{{artistName}}
+			<br>{{releaseDate}}</p>
+		</div>
+	</div>
+	{{/each}}
 </div>
-<hr>

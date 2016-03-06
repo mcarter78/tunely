@@ -11,4 +11,12 @@ var albumSchema = mongoose.Schema({
   songList: [songSchema]
 });
 
+albumSchema.index(
+	{
+		artistName: "text",
+		name: "text",
+		releaseDate: "text",
+	}
+);
+
 module.exports = mongoose.model('Album', albumSchema);

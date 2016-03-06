@@ -1,5 +1,23 @@
 /*DEATH METAL CSS*/
 
+/*NAVBAR CSS*/
+.navbar-default .navbar-nav>li>a:hover {
+    color: red;
+}
+.navbar-default .navbar-brand:hover {
+    color: red;
+}
+
+/*changes navbar font*/
+a.navbar-brand {
+  font-family: 'Nosifer', cursive;
+}
+
+ul.navbar-right {
+  font-family: 'Asap', sans-serif;
+}
+
+/*BACKGROUND IMAGE*/
 #death_metal_image {
   /* Set rules to fill background */
   min-height: 100%;
@@ -15,25 +33,34 @@
   left: 0;
 }
 
-/*NAVBAR CSS*/
-.navbar-default .navbar-nav>li>a:hover {
-    color: #00AD85;
+/*TEXT DIV*/
+#death_metal_text_div {
+  margin-top: 200px;
+  position: relative;
+  text-align: right;
+  margin-right: 40px;
 }
-.navbar-default .navbar-brand:hover {
-    color: #00AD85;
-}
-
-/*changes navbar font*/
-a.navbar-brand {
-  font-family: 'Asap', sans-serif;
-}
-
-ul.navbar-right {
-  font-family: 'Asap', sans-serif;
-}
-
 #death_metal_header {
 	font-family: 'Nosifer', cursive;
-	position: absolute;
-	top: ;
+	color: red;
+  font-size: 60px;
+}
+#death_metal_blurb {
+  font-family: 'Asap', sans-serif;
+  color: red;
+  font-size: 30px;
+}
+
+
+/*Dani's function is throwing errors so that this page scrolls on resize when it regularly would not.
+When I comment out her function the page behaves like it regularly would and doesn't scroll on resize.
+Not sure whether or not we want to use this function but i didn't want to comment it out in case someone else is relying on it.*/
+
+@media (max-width: 767px) {
+  #death_metal_text_div {
+    margin-top: 0px;
+    position: relative;
+    text-align: right;
+    margin-right: 40px;
+  }
 }

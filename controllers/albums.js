@@ -114,11 +114,52 @@ function apiAlbums (req, res){
 }
 
 function deathMetal (req, res){
-  res.render("deathmetal_layout");
+  res.render('./partials/deathmetal_content',{layout: "deathmetal_layout"});
 }
 
 function search (req, res) {
-  res.render("./partials/search");
+  var query = req.query.keyword;
+  var searchResults = [];
+  if (query) {
+    Album.find({$text: {$search: query}}, function (err, albumResults) {
+      if (err) {
+        returnError(err);
+      } else if (albumResults.length > 0) {
+          searchResults.push.apply(searchResults, albumResults);
+      }
+    });
+
+    //FYI regex is an inefficient way to deal with case-sensitivity in the query
+    //we could build a new field in songs called title_lower and search through that field instead, but I didn't want to mess around with the schema too much
+    //for the purposes of this short project, let's just stick with this for now. it works.
+    Album.find({"songList.title":  {$regex: new RegExp('^' + query.toLowerCase(), 'i')}}, function (err, songResults) {
+      if (err) {
+        returnError(err);
+        res.render("./partials/search", {albums: searchResults, previous_search_value: query});
+      } else if (songResults.length > 0) {
+          searchResults.push.apply(searchResults, songResults);
+      }
+    });
+    res.render("./partials/search", {albums: searchResults, previous_search_value: query});
+  } else {
+    res.render("./partials/search", {albums: searchResults, previous_search_value: query});
+  }
+  //KEEP THIS COMMENTED OUT CODE FOR NOW UNTIL WE ARE SURE THE NEW FORM WORKS WITH SONGS
+     //couldn't test to my satisfaction until the new form for songs is done.
+     //need to make sure songs/albums that share a keyword are both rendered to the page.
+
+  // var query = req.query.keyword;
+  // Album.find({$text: {$search: query}}, function (err, data) {
+  //   if (err) {
+  //     returnError(err);
+  //     res.render("./partials/search", {albums: data});
+  //   } else if (data.length === 0) {
+  //     console.log('Sorry, there are no albums by that artist.');
+  //     res.render("./partials/search", {albums: data, previous_search_value: query});
+  //   } else {
+  //     res.render("./partials/search", {albums: data, previous_search_value: query});
+  //   }
+  // });
 }
 
 // shows specific album -- NOT REALLY PRACTICAL UNLESS YOU KNOW THE GENERATED _ID
