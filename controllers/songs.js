@@ -40,15 +40,18 @@ function editSong (req, res) {
 }
 
 function updateSong (req, res) {
-    var id = req.params.id;
-    Album.find({_id: id}, function(err, album){
+    // var id = req.params.id;
+    console.log(id);
+    Album.findById(req.params.id, function(err, album){
     if (err) returnError(err);
     for(var i = 0; i < album.songList.length; i++) {
       if (req.body.trackNumber) album.songList[i].trackNumber = req.body.trackNumber;
       if (req.body.title) album.songList[i].title = req.body.title;
       if (req.body.duration) album.songList[i].duration = req.body.duration;
     }
-    res.redirect('/albums/' + album._id, {album: album});
+    
+    console.log(album)
+    res.redirect('/albums/' + album.id, {album: album});
   });
 }
 
