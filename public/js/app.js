@@ -112,3 +112,12 @@ $('.responsive').slick({
     }
   ]
 });
+
+// function buildSongsHtml(songs) {
+//   var songText = " &ndash; ";
+//   songs.forEach(function(song) {
+//     songText = songText + "(" + song.trackNumber + ")" + song.name + " &ndash; ";
+//   });
+//   var songsHtml =
+
+// }

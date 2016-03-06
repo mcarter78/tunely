@@ -37,6 +37,9 @@ router.route('/albums/:id')
 router.route('/albums/:id/edit')
   .get(albumsController.editAlbum);
 
+router.route('/albums/:id/songs/new')
+  .get(songsController.newSong);
+
 router.route('albums/:id/songs')
   .get(songsController.songIndex)
   .post(songsController.createSong);

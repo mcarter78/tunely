@@ -9,7 +9,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="name">Album Name:</label>
               <div class="col-md-4">
-                <input id="name" name="name" type="text" class="form-control input-md" required="">
+                <input id="name" name="name" type="text" class="form-control input-md">
               </div>
             </div>
 
@@ -39,12 +39,11 @@
             <!-- Button -->
             <div class="form-group">
               <div class="text-center">
-                <form method="POST" action="/albums">
+                <form method="POST" action="/albums/:id/songs/new">
                   <button id="saveAlbumBtn">Save Album</button>
                 <form>
               </div>
             </div>
-
 
         </form>
 

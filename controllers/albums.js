@@ -21,6 +21,7 @@ function renderAlbums (req, res) {
 
 function renderAlbum (req, res) {
   var id = req.params.id;
+  console.log(id)
   Album.find({_id: id}, function(err, album){
     if (err) returnError(err);
     console.log('album ', album);
@@ -44,7 +45,7 @@ function createAlbum (req, res) {
     photoUrl: photoUrl
   }, function(err, album){
     if (err) return returnError(err);
-    res.redirect('/albums/:id', {album: album});
+    res.redirect('/albums/'+album._id+'/songs/new');
   });
 }
 
@@ -72,6 +73,7 @@ function updateAlbum (req, res) {
       releaseDate: album.releaseDate,
       photoUrl: album.photoUrl
     }
+    //save 
     Album.update({_id: id}, obj, function(err, album) {
       if (err) returnError(err);
       res.redirect('/albums/'+ id);
@@ -81,8 +83,10 @@ function updateAlbum (req, res) {
 
 function deleteAlbum (req, res) {
   var id = req.params.id;
+  // console.log(id)
   Album.findOne({_id: id}, function(err, album){
     if (err) returnError(err);
+    console.log(album)
     album.remove(function(){
     res.redirect('/albums');
     });

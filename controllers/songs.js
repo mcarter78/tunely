@@ -14,6 +14,10 @@ function songIndex (req, res) {
   });
 }
 
+function newSong (req, res) {
+  res.render('./partials/newsong');
+}
+
 function createSong (req, res) {
   var id = req.params.id;
   Album.find({_id: id}, function(err, album){
@@ -23,7 +27,7 @@ function createSong (req, res) {
       if (req.body.title) album.songList[i].title = req.body.title;
       if (req.body.duration) album.songList[i].duration = req.body.duration;
     }
-    res.redirect('/albums/' + album._id, {album: album});
+    res.redirect('/albums/'+album._id, {album: album});
   });
 }
 
@@ -54,6 +58,7 @@ function deleteSong (req, res) {
 
 module.exports = {
   songIndex: songIndex,
+  newSong: newSong,
   createSong: createSong,
   updateSong: updateSong,
   deleteSong: deleteSong
