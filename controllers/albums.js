@@ -2,7 +2,11 @@
  * DATABASE *
  ************/
 var Album = require('../models/album');
+var Song = require('../models/song');
 
+function returnError (err) {
+  return console.log(err);
+}
 
 function renderHome (req, res) {
   res.render('./partials/home');
@@ -110,11 +114,10 @@ function search (req, res) {
 //   });
 // }
 
-function returnError (err) {
-  return console.log(err);
-}
+
 
 module.exports = {
+  returnError: returnError,
   renderHome: renderHome,
   renderAlbums: renderAlbums,
   renderAlbum: renderAlbum,
