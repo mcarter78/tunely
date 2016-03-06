@@ -113,6 +113,20 @@ $('.responsive').slick({
   ]
 });
 
+
+$('#showpage_delete_button').on('click', function(e){
+  msg(e);
+})
+
+// $('#showpage_delete_button').on('click', msg)
+
+function msg(e) {
+  e.preventDefault();
+  var x = confirm("Are you sure you want to delete this album?");
+  if (x) {
+    $('#deleteAlbumForm').submit();
+  }
+}
 // function buildSongsHtml(songs) {
 //   var songText = " &ndash; ";
 //   songs.forEach(function(song) {

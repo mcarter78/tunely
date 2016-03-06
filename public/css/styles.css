@@ -4,11 +4,13 @@
 	background-size: cover;
   background-repeat: no-repeat;
 }*/
+
 body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
+  background-color: rgba(0,173,133, 0.5);
 }
 
 #page-title {
@@ -97,7 +99,6 @@ body {
 	height: 100%;
 	width: 100%;
 }
-
 
 .inline-header {
   display: inline-block;
@@ -189,9 +190,10 @@ body {
   text-align: center;
 }
 .showpage_edit_button {
+  float: left;
   font-size: 15px;
   background-color: #00AD85;
-  margin: 10px;
+  margin: 5% 0% 5% 25%;
   color: white;
 }
 .showpage_edit_button:hover {
@@ -200,11 +202,13 @@ body {
 }
 
 #showpage_delete_button {
+  float: right;
   font-size: 15px;
   background-color: #00AD85;
-  margin: 10px;
+  margin: 5% 25% 5% 0%;
   color: white;
   border-radius: 5px;
+  padding: 1%;
 }
 
 #return_to_albums_button_div{
@@ -227,6 +231,37 @@ body {
 
 .songList {
   list-style: none;
+}
+
+#new_song_form_table {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#songTable {
+  text-align: center;
+  margin: 0 15%;
+}
+
+#addTracksBtn {
+  margin: 0 auto;
+  float: none;
+  margin-top: 2%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+th {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+table thead tr{
+   height: 35px;
 }
 
 /*NAVBAR CSS*/
@@ -316,6 +351,7 @@ ul.navbar-right {
 	font-size: 1.5em;
 }
 #saveAlbumBtn {
+  margin-top: 2%;
 	background-color: rgba(0, 0, 0, 0.5);
 	border-radius: 10px;
 	font-size: 1.2em;
@@ -355,3 +391,5 @@ ul.navbar-right {
 		top: 200px;
 	}
 }
+
+
