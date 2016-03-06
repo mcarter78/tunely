@@ -37,11 +37,17 @@ router.route('/albums/:id')
 router.route('/albums/:id/edit')
   .get(albumsController.editAlbum);
 
-router.route('albums/:id/songs')
+router.route('/albums/:id/songs/new')
+  .get(songsController.newSong);
+
+router.route('/albums/:id/songs/edit')
+  .get(songsController.editSong);
+
+router.route('/albums/:id/songs')
   .get(songsController.songIndex)
   .post(songsController.createSong);
-
-router.route('albums/:id/songs/:id')
+  
+router.route('/albums/:id/songs/:id')
   .patch(songsController.updateSong)
   .delete(songsController.deleteSong);
 

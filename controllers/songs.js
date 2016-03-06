@@ -14,6 +14,10 @@ function songIndex (req, res) {
   });
 }
 
+function newSong (req, res) {
+  res.render('./partials/newsong');
+}
+
 function createSong (req, res) {
   var id = req.params.id;
   Album.find({_id: id}, function(err, album){
@@ -27,9 +31,18 @@ function createSong (req, res) {
   });
 }
 
+function editSong (req, res) {
+  Album.findById(req.params.id, function(err, album){
+    if (err) returnError(err);
+    console.log('album ', album);
+    res.render('./partials/editsong', {album: album});
+  });
+}
+
 function updateSong (req, res) {
-  var id = req.params.id;
-  Album.find({_id: id}, function(err, album){
+    var id = req.params.id;
+    Album.find({_id: id}, function(err, album){
+    if (err) returnError(err);
     for(var i = 0; i < album.songList.length; i++) {
       if (req.body.trackNumber) album.songList[i].trackNumber = req.body.trackNumber;
       if (req.body.title) album.songList[i].title = req.body.title;
@@ -54,6 +67,8 @@ function deleteSong (req, res) {
 
 module.exports = {
   songIndex: songIndex,
+  newSong: newSong,
+  editSong: editSong,
   createSong: createSong,
   updateSong: updateSong,
   deleteSong: deleteSong

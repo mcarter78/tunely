@@ -20,10 +20,13 @@ function renderAlbums (req, res) {
 }
 
 function renderAlbum (req, res) {
-  var id = req.params.id;
-  Album.find({_id: id}, function(err, album){
+  // var id = req.params.id;
+  // console.log(id)
+  Album.findById(req.params.id, function(err, album){
+    // console.log('id ** ', req.params.id);
     if (err) returnError(err);
-    res.render('./partials/show', {album:album});
+    console.log('album ', album);
+    res.render('./partials/show', {album: album});
   });
 }
 
@@ -43,37 +46,50 @@ function createAlbum (req, res) {
     photoUrl: photoUrl
   }, function(err, album){
     if (err) return returnError(err);
-    res.redirect('/albums/:id', {album: album});
+    res.redirect('/albums/'+album._id + '/songs/new');
   });
 }
 
 function editAlbum (req, res) {
-  var id = req.params.id;
-  Album.find({_id: id}, function(err, album){
+  // var id = req.params.id;
+  Album.findById(req.params.id, function(err, album){
     if (err) returnError(err);
-    res.render('./partials/edit', {album:album});
+    console.log('album ', album);
+    res.render('./partials/edit', {album: album});
   });
-
-}
+} 
 
 function updateAlbum (req, res) {
   var id = req.params.id;
+
   Album.find({_id: id}, function(err, album){
     if (err) returnError(err);
     if (req.body.name) album.name = req.body.name;
     if (req.body.artistName) album.artistName = req.body.artistName;
     if (req.body.releaseDate) album.releaseDate = req.body.releaseDate;
     if (req.body.photoUrl) album.photoUrl = req.body.photoUrl;
-    res.redirect('/albums/'+ req.params.id + 'edit', {album: album});
+    var obj = {
+      name: album.name,
+      artistName: album.artistName,
+      releaseDate: album.releaseDate,
+      photoUrl: album.photoUrl
+    }
+    Album.update({_id: id}, obj, function(err, album) {
+      if (err) returnError(err);
+      res.redirect('/albums/'+ id);
+    });
   });
 }
 
 function deleteAlbum (req, res) {
   var id = req.params.id;
-  Album.find({_id: id}, function(err, album){
+  // console.log(id)
+  Album.findOne({_id: id}, function(err, album){
     if (err) returnError(err);
-    Album.remove(album);
-    res.redirect('/albums/');
+    console.log(album)
+    album.remove(function(){
+    res.redirect('/albums');
+    });
   });
 }
 
