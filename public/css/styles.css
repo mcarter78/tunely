@@ -243,7 +243,20 @@ body {
   margin: 0 15%;
 }
 
-#addTracksBtn {
+/*#addTracksBtn {
+  margin: 0 auto;
+  float: none;
+  margin-top: 2%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  border: none;
+}*/
+
+
+.saveBtn {
   margin: 0 auto;
   float: none;
   margin-top: 2%;
