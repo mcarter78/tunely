@@ -123,11 +123,57 @@ function msg(e) {
     $('#deleteAlbumForm').submit();
   }
 }
-// function buildSongsHtml(songs) {
-//   var songText = " &ndash; ";
-//   songs.forEach(function(song) {
-//     songText = songText + "(" + song.trackNumber + ")" + song.name + " &ndash; ";
-//   });
-//   var songsHtml =
 
-// }
+$('#saveAlbumBtn').on('click', function(e){
+
+  e.preventDefault();
+    // console.log(songs);
+    var newSongs = [];
+    var songs = $('#songTable tbody tr');
+  $(songs).each(function( index) {
+    var trackNumber = $(this).find("input[name='trackNumber']").val();
+    var title = $(this).find("input[name='title']").val();
+    var duration = $(this).find("input[name='duration']").val();
+    var song = {
+      trackNumber: trackNumber,
+      title: title,
+      duration: duration
+    }
+    newSongs.push(song);
+    console.log(song);
+    // console.log($(this));
+    // console.log($(this).find("input[name='trackNumber']").val());
+    // console.log($(this).find("input[name='title']").val());
+    // console.log($(this).find("input[name='duration']").val());
+
+  });
+  console.log(newSongs);
+  var albumId = $('#albumId').val();
+  console.log(albumId);
+  $.ajax({
+    type: 'POST',
+    url: '/albums/' + albumId + '/songs',
+    data: {
+      songList: newSongs
+    },
+    dataType: 'json'
+  }).done(function (data) {
+    window.location.href = '/albums/' + albumId;
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

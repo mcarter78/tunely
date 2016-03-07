@@ -1,4 +1,5 @@
-<form method="POST" action="/albums/{{album._id}}?_method=patch" class="form-horizontal">
+<form method="POST" action="/albums/{{album._id}}?_method=patch" class="form-horizontal" >
+    <input type="hidden" id="albumId" value={{album._id}}>
     <div class="table-responsive">
         <table id="songTable" class="table-bordered">
         <h2 id="newAlbum">Edit Tracks</h2>
@@ -13,7 +14,7 @@
                 <tr>
                     <td><input type="text" name="trackNumber" class="form-control" required value="{{this.trackNumber}}"/></td>
                     <td><input type="text" name="title" class="form-control" required value="{{this.title}}"/></td>
-                    <td><input type="text" class="form-control" required value="{{this.duration}}"/></td>
+                    <td><input type="text" name="duration" class="form-control" required value="{{this.duration}}"/></td>
                 </tr>
                 {{/each}}
             </tbody>
@@ -21,7 +22,7 @@
 
         <div class="form-group">
             <div class="text-center">
-                <button id="saveAlbumBtn">Update Tracks</button>
+                <button type="button" id="saveAlbumBtn">Update Tracks</button>
             </div>
         </div>
     </div>

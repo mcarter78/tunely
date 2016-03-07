@@ -15,21 +15,42 @@ function songIndex (req, res) {
 }
 
 function newSong (req, res) {
-  res.render('./partials/newsong');
+  var id = req.params.id
+    console.log('id ', id);
+  Album.findById(id, function(err, album){
+    if (err) returnError(err);
+    console.log('album ', album);
+  res.render('./partials/newsong', {album: album});
+  });
 }
+
 
 function createSong (req, res) {
   var id = req.params.id;
-  Album.find({_id: id}, function(err, album){
+
+  Album.findById(id, function(err, album){
+    console.log('id ', id);
     if (err) returnError(err);
-    for(var i = 0; i < album.songList.length; i++) {
-      if (req.body.trackNumber) album.songList[i].trackNumber = req.body.trackNumber;
-      if (req.body.title) album.songList[i].title = req.body.title;
-      if (req.body.duration) album.songList[i].duration = req.body.duration;
-    }
-    res.redirect('/albums/' + album._id, {album: album});
+    // joins array of new songs to existing songList array
+    album.songList = req.body.songList;
+    console.log(album.songList);
+    console.log(album);
+    album.save(function(err, album) {
+      if (err) returnError(err);
+      console.log('created album ', album);
+      res.status(200).json("success");
+      // res.redirect('/albums' + album._id, {album: album});
+      // console.log('album.songList ', album.songList )
+    });
   });
 }
+    // console.log('album, ', album);
+    // for(var i = 0; i < album.songList.length; i++) {
+    //   if (req.body.trackNumber) album.songList[i].trackNumber = req.body.trackNumber;
+    //   if (req.body.title) album.songList[i].title = req.body.title;
+    //   if (req.body.duration) album.songList[i].duration = req.body.duration;
+    // }
+    // res.redirect('/albums/' + album._id, {album: album});
 
 function editSong (req, res) {
   Album.findById(req.params.id, function(err, album){
@@ -40,24 +61,41 @@ function editSong (req, res) {
 }
 
 function updateSong (req, res) {
-    // var id = req.params.id;
-    console.log(id);
-    Album.findById(req.params.id, function(err, album){
+  Album.findById(AlbumId, function(err, album){
     if (err) returnError(err);
-    for(var i = 0; i < album.songList.length; i++) {
-      if (req.body.trackNumber) album.songList[i].trackNumber = req.body.trackNumber;
-      if (req.body.title) album.songList[i].title = req.body.title;
-      if (req.body.duration) album.songList[i].duration = req.body.duration;
-    }
-    
-    console.log(album)
-    res.redirect('/albums/' + album.id, {album: album});
+    // joins array of new songs to existing songList array
+    album.songList = album.songList.concat(req.body.songList);
+    console.log(album.songList);
+
+    album.save(function(err, album) {
+      if (err) returnError(err);
+      console.log('updated album ', album);
+      res.redirect('/albums' + album._id, {album: album});
+    // console.log('album.songList ', album.songList )
+    });
   });
 }
+
+// function updateSong (req, res) {
+//     // var id = req.params.id;
+//     console.log(id);
+//     Album.findById(req.params.id, function(err, album){
+//     if (err) returnError(err);
+//     for(var i = 0; i < album.songList.length; i++) {
+//       if (req.body.trackNumber) album.songList[i].trackNumber = req.body.trackNumber;
+//       if (req.body.title) album.songList[i].title = req.body.title;
+//       if (req.body.duration) album.songList[i].duration = req.body.duration;
+//     }
+    
+//     console.log(album)
+//     res.redirect('/albums/' + album.id, {album: album});
+//   });
+// }
 
 function deleteSong (req, res) {
   var id = req.params.id;
   Album.find({_id: id}, function(err, album){
+    console.log(id);
     if (err) returnError(err);
     for(var i = 0; i < album.songList.length; i++){
       if (album.songlist[i].title == req.body.title) {
