@@ -327,6 +327,54 @@ var albumsList = [
                     duration: "01:27"
                   }
                 ]
+              },
+              {
+                artistName: 'The Jackson 5',
+                name: 'Goin Back to Indiana',
+                releaseDate: '1971, September 29',
+                photoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/3f/Goin-back-indiana.jpg',
+                songList: [
+                  {
+                    trackNumber: 1,
+                    title: "I Want You Back",
+                    duration: "05:14"
+                  },
+                  {
+                    trackNumber: 2,
+                    title: "Maybe Tomorrow",
+                    duration: "05:38"
+                  },
+                  {
+                    trackNumber: 3,
+                    title: "The Day Basketball was Saved",
+                    duration: "05:32"
+                  },
+                  {
+                    trackNumber: 4,
+                    title: "Stand",
+                    duration: "04:08"
+                  },
+                  {
+                    trackNumber: 5,
+                    title: "I Want to Take You Higher",
+                    duration: "04:57"
+                  },
+                  {
+                    trackNumber: 6,
+                    title: "Feelin Alright",
+                    duration: "03:26"
+                  },
+                  {
+                    trackNumber: 7,
+                    title: "The Love You Save",
+                    duration: "05:05"
+                  },
+                  {
+                    trackNumber: 8,
+                    title: "Goin Back to Indiana",
+                    duration: "03:08"
+                  }
+                ]
               }
 
 ];
