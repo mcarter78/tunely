@@ -2,7 +2,7 @@
 <h2 id="page-title" class="header_lg">Browse All Albums</h2>
 <div class="multiple-items">
   {{#each albums}}
-    {{#if this.name}}
+    <!-- {{#if this.name}} -->
       <div class="single-album">
         <a href="/albums/{{this._id}}" class="search_result_image_link">
           {{#if this.photoUrl}}
@@ -19,6 +19,6 @@
             <p class="text_lg">{{this.name}}</p>
           </div>
       </div>
-    {{/if}}
+   <!--  {{/if}} -->
   {{/each}}
 </div>
