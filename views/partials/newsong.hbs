@@ -1,4 +1,4 @@
-<form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal">
+
     <div class="table-responsive">
         <table id="songTable" class="table-bordered">
         <h2 id="newAlbum">Add Tracks</h2>
@@ -9,66 +9,80 @@
             </thead>
             <tbody>
                 <tr>
+                  <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-1">
                     <td><input type="text" name="trackNumber" class="form-control" value="1"/></td>
                     <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                    <td><input type="text" name="duration" class="form-control"/></td>
+                  </form>
                 </tr>
                 <tr>
+                  <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-2">
                     <td><input type="text" name="trackNumber" class="form-control" value="2"/></td>
                     <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                    <td><input type="text" name="duration" class="form-control"/></td>
+                  </form>
                 </tr>
                 <tr>
+                  <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-3">
                     <td><input type="text" name="trackNumber" class="form-control" value="3"/></td>
                     <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                    <td><input type="text" name="duration" class="form-control"/></td>
+                  </form>
                 </tr>
                 <tr>
+                  <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-4">
                     <td><input type="text" name="trackNumber" class="form-control" value="4"/></td>
                     <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                    <td><input type="text" name="duration" class="form-control"/></td>
+                  </form>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="5"/></td>
-                    <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                   <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-5">
+                     <td><input type="text" name="trackNumber" class="form-control" value="5"/></td>
+                     <td><input type="text" name="title" class="form-control"/></td>
+                     <td><input type="text" name="duration" class="form-control"/></td>
+                   </form>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="6"/></td>
-                    <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                   <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-6">
+                     <td><input type="text" name="trackNumber" class="form-control" value="6"/></td>
+                     <td><input type="text" name="title" class="form-control"/></td>
+                     <td><input type="text" name="duration" class="form-control"/></td>
+                   </form>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="7"/></td>
-                    <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                   <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-7">
+                     <td><input type="text" name="trackNumber" class="form-control" value="7"/></td>
+                     <td><input type="text" name="title" class="form-control"/></td>
+                     <td><input type="text" name="duration" class="form-control"/></td>
+                   </form>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="8"/></td>
-                    <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                   <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-8">
+                     <td><input type="text" name="trackNumber" class="form-control" value="8"/></td>
+                     <td><input type="text" name="title" class="form-control"/></td>
+                     <td><input type="text" name="duration" class="form-control"/></td>
+                   </form>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="9"/></td>
-                    <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                   <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-9">
+                     <td><input type="text" name="trackNumber" class="form-control" value="9"/></td>
+                     <td><input type="text" name="title" class="form-control"/></td>
+                     <td><input type="text" name="duration" class="form-control"/></td>
+                   </form>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="10"/></td>
-                    <td><input type="text" name="title" class="form-control"/></td>
-                    <td><input type="text" class="form-control"/></td>
+                   <form method="POST" action="/albums/{{album._id}}/songs" class="form-horizontal add-song" id="track-10">
+                     <td><input type="text" name="trackNumber" class="form-control" value="10"/></td>
+                     <td><input type="text" name="title" class="form-control"/></td>
+                     <td><input type="text" name="duration" class="form-control"/></td>
+                   </form>
                 </tr>
             </tbody>
 
         </table>
 
-        <div class="form-group">
-            <div class="text-center">
-                <button id="saveAlbumBtn">Save Tracks</button>
-            </div>
+        <div class="text-center">
+            <button id="saveSongsBtn">Save Tracks</button>
         </div>
     </div>
-</form>
-
-
-

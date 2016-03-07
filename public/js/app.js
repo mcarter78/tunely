@@ -11,6 +11,18 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
   var app = new App();
+  $('#saveSongsBtn').on('click', function(e){
+    $('#track-1').submit();
+    // $('#track-2').submit().delay(100);
+    // $('#track-3').submit().delay(100);
+    // $('#track-4').submit().delay(100);
+    // $('#track-5').submit().delay(100);
+    // $('#track-6').submit().delay(100);
+    // $('#track-7').submit().delay(100);
+    // $('#track-8').submit().delay(100);
+    // $('#track-9').submit().delay(100);
+    // $('#track-10').submit().delay(100);
+  });
   function setBodyMinHeight() {
     // var ele =document.getElementByTagName('body');
     var ele =document.body;
@@ -112,7 +124,7 @@ $('.responsive').slick({
 
 $('#showpage_delete_button').on('click', function(e){
   msg(e);
-})
+});
 
 // $('#showpage_delete_button').on('click', msg)
 

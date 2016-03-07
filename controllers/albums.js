@@ -39,11 +39,13 @@ function createAlbum (req, res) {
   var artistName = req.body.artistName;
   var releaseDate = req.body.releaseDate;
   var photoUrl = req.body.photoUrl;
+  var songList = [];
   Album.create({
     name: name,
     artistName: artistName,
     releaseDate: releaseDate,
-    photoUrl: photoUrl
+    photoUrl: photoUrl,
+    songList: songList
   }, function(err, album){
     if (err) return returnError(err);
     res.redirect('/albums/'+album._id + '/songs/new');
@@ -57,7 +59,7 @@ function editAlbum (req, res) {
     console.log('album ', album);
     res.render('./partials/edit', {album: album});
   });
-} 
+}
 
 function updateAlbum (req, res) {
   var id = req.params.id;
