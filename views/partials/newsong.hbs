@@ -1,7 +1,9 @@
 <form method="POST" action="/albums/{{album._id}}" class="form-horizontal">
+    <input type="hidden" id="albumId" value={{album._id}}>
     <div class="table-responsive">
         <table id="songTable" class="table-bordered">
-        <h2 id="newAlbum">Add Tracks - {{album.name}}</h2>
+        <h2 id="newAlbum">Add Tracks</h2>
+        <h2 class="text-center">Album: {{album.name}}</h
             <thead>
                 <th style="width:5%">Track#</th>
                 <th style="width:70%">Song Title Name</th>
@@ -9,52 +11,52 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="1"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" /></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="2"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" /></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="3"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" /></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="4"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" /></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="5"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" /></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="6"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" /></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="7"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" /></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="8"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" value=""/></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="9"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" value=""/></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
                  <tr>
-                    <td><input type="text" name="trackNumber" class="form-control" value="10"/></td>
+                    <td><input type="text" name="trackNumber" class="form-control" /></td>
                     <td><input type="text" name="title" class="form-control"/></td>
                     <td><input type="text" name="duration" class="form-control"/></td>
                 </tr>
@@ -64,7 +66,7 @@
 
         <div class="form-group">
             <div class="text-center">
-                <button id="saveAlbumBtn">Save Tracks</button>
+                <button class="saveBtn" id="newTracksBtn">Save Tracks</button>
             </div>
         </div>
     </div>

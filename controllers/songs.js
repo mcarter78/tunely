@@ -26,14 +26,13 @@ function newSong (req, res) {
 
 
 function createSong (req, res) {
-  var id = req.params.id;
-
+  var id = req.params.id
   Album.findById(id, function(err, album){
-    console.log('id ', id);
+    // console.log('id ', id);
     if (err) returnError(err);
     // joins array of new songs to existing songList array
     album.songList = req.body.songList;
-    console.log(album.songList);
+    // console.log(album.songList);
     console.log(album);
     album.save(function(err, album) {
       if (err) returnError(err);
