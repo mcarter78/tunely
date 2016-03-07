@@ -11,15 +11,15 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
   var app = new App();
-  function setBodyMinHeight() {
-    // var ele =document.getElementByTagName('body');
-    var ele =document.body;
-    var windowHeight =window.outerHeight;
-    ele.style.minHeight =windowHeight+'px';
-  }
-  window.onresize =function() {
-      setBodyMinHeight();
-  };
+  // function setBodyMinHeight() {
+  //   // var ele =document.getElementByTagName('body');
+  //   var ele =document.body;
+  //   var windowHeight =window.outerHeight;
+  //   ele.style.minHeight =windowHeight+'px';
+  // }
+  // window.onresize =function() {
+  //     setBodyMinHeight();
+  // };
 
   $('.multiple-items').slick({
     infinite: true,
@@ -52,6 +52,80 @@ $(document).ready(function() {
       }
     }
   ]
+  });
+
+  
+  $('#newTracksBtn').on('click', function(e){
+    e.preventDefault();
+      // console.log(songs);
+      var newSongs = [];
+      var songs = $('#songTable tbody tr');
+    $(songs).each(function( index) {
+      var trackNumber = $(this).find("input[name='trackNumber']").val();
+      var title = $(this).find("input[name='title']").val();
+      var duration = $(this).find("input[name='duration']").val();
+      var song = {
+        trackNumber: trackNumber,
+        title: title,
+        duration: duration
+      }
+      newSongs.push(song);
+      // console.log(song);
+      // console.log($(this));
+      // console.log($(this).find("input[name='trackNumber']").val());
+      // console.log($(this).find("input[name='title']").val());
+      // console.log($(this).find("input[name='duration']").val());
+    });
+    // console.log(newSongs);
+    var albumId = $('#albumId').val();
+    console.log(albumId);
+    $.ajax({
+      type: 'POST',
+      url: '/albums/' + albumId + '/songs',
+      data: {
+        songList: newSongs
+      },
+      dataType: 'json'
+    }).done(function (data) {
+      window.location.href = '/albums/' + albumId;
+    });
+  });
+
+  $('#updateTracksBtn').on('click', function(e){
+
+    e.preventDefault();
+      // console.log(songs);
+      var newSongs = [];
+      var songs = $('#songTable tbody tr');
+    $(songs).each(function( index) {
+      var trackNumber = $(this).find("input[name='trackNumber']").val();
+      var title = $(this).find("input[name='title']").val();
+      var duration = $(this).find("input[name='duration']").val();
+      var song = {
+        trackNumber: trackNumber,
+        title: title,
+        duration: duration
+      }
+      newSongs.push(song);
+      // console.log(song);
+      // console.log($(this));
+      // console.log($(this).find("input[name='trackNumber']").val());
+      // console.log($(this).find("input[name='title']").val());
+      // console.log($(this).find("input[name='duration']").val());
+    });
+    // console.log(newSongs);
+    var albumId = $('#albumId').val();
+    // console.log(albumId);
+    $.ajax({
+      type: 'POST',
+      url: '/albums/' + albumId + '/songs',
+      data: {
+        songList: newSongs
+      },
+      dataType: 'json'
+    }).done(function (data) {
+      window.location.href = '/albums/' + albumId;
+    });
   });
 });
 
@@ -123,11 +197,20 @@ function msg(e) {
     $('#deleteAlbumForm').submit();
   }
 }
-// function buildSongsHtml(songs) {
-//   var songText = " &ndash; ";
-//   songs.forEach(function(song) {
-//     songText = songText + "(" + song.trackNumber + ")" + song.name + " &ndash; ";
-//   });
-//   var songsHtml =
 
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
