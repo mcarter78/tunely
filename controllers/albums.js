@@ -46,7 +46,8 @@ function createAlbum (req, res) {
     photoUrl: photoUrl
   }, function(err, album){
     if (err) return returnError(err);
-    res.redirect('/albums/'+album._id + '/songs/new');
+    // res.redirect('/albums/'+album._id + '/songs/new');
+    res.redirect('/albums');
   });
 }
 

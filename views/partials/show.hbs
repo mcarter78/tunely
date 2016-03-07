@@ -3,12 +3,19 @@
 		<div id="return_to_albums_button_div">
 			<a href="/albums" class="btn btn-default" id="return_to_albums_button">Return to all albums</a>
 		</div>
-		<img src={{album.photoUrl}} id="showpage_image">
+      {{#if album.photoUrl}}
+        <img src="{{album.photoUrl}}" alt="album cover photo" id="showpage_image">
+      {{else}}
+        <div class="default_image_div">
+          <img src="/images/bright-cover-art.png" class="default_image" id="showpage_image">
+          <p class="header_lg default_image_text" id="missing_art_showpage_text" style="color: white">Album Art Missing</p>
+        </div>
+       {{/if}}
 		<div id="showpage_edit_buttons_div">
 
 			<a href="/albums/{{album._id}}/edit" class="btn btn-default showpage_edit_button" id="edit_album_button">Edit Album</a>
 			<form id="deleteAlbumForm" method="POST" action="/albums/{{album._id}}?_method=delete" class="form-horizontal">
-				<input type="button" id="showpage_delete_button" value="Delete Album"/>
+				<input type="button" class="btn btn-default showpage_edit_button" id="showpage_delete_button" value="Delete Album"/>
 			</form>
 		</div>
 	</div>
@@ -27,7 +34,7 @@
 
 			<ul>
 				{{#each album.songList}}
-					<li class="songList">{{this.trackNumber}} {{this.title}} duration:{{this.duration}}</li>
+					<li class="songList">{{this.trackNumber}}. {{this.title}} <span style="color: gray">{{this.duration}}</span></li>
 				{{/each}}
 			</ul>
 		</div>

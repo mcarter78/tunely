@@ -10,7 +10,6 @@ body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-  background-color: rgba(0,173,133, 0.5);
 }
 
 #page-title {
@@ -44,6 +43,12 @@ body {
 	z-index: -999;
 }
 
+#page-title {
+  margin-left: 30px;
+}
+.render_grayscale {
+  opacity: 0.45;
+}
 
 #album-form {
 	display: inline-block;
@@ -70,14 +75,16 @@ body {
 
 #name-artist {
 	position: absolute;
-	bottom: 20px;
-	left: -0px;
+  top: 245px;
 	display: inline;
 	float: left;
 	clear: both;
 	padding: 0 5px;
 	margin: 0;
-	background-color: #000;
+  color: black;
+}
+#name-artist:hover {
+  color: #00AD85;
 }
 
 #name-artist p {
@@ -86,11 +93,17 @@ body {
 	clear: both;
 	padding: 0 5px;
 	margin: 0;
+  font-weight: bold;
 }
 
 .index-cover {
 	height: 240px;
 	width: 240px;
+}
+
+.index-cover:hover {
+  filter: invert(1);
+  -webkit-filter: invert(1);
 }
 
 .home-page {
@@ -112,7 +125,7 @@ body {
 
 .browse_button_div {
 	position: relative;
-    top: 440px;
+    top: 540px;
 }
 
 #browse_albums_button {
@@ -135,6 +148,10 @@ body {
   font-family: 'Asap', sans-serif;
 }
 /*TEXT DETAILS*/
+.header_lg {
+  font-size: 36px;
+  font-family: 'Asap', sans-serif;
+}
 .header_md {
   font-size: 24px;
   font-family: 'Asap', sans-serif;
@@ -172,7 +189,7 @@ body {
 
 #showpage_content_div{
   font-weight: bold;
-  color: #97979A;
+  color: black;
   text-align: left;
   position: relative;
   display: inline-block;
@@ -180,12 +197,18 @@ body {
 /*  vertical-align: middle;*/
 }
 
+#missing_art_text{
+  margin-left: 34px;
+}
 #showpage_image {
   display: block;
   margin: 0 auto;
   width: 90%;
 }
-
+#missing_art_showpage_text{
+  text-align: center;
+  top: -220px;
+}
 #showpage_edit_buttons_div {
   text-align: center;
 }
@@ -209,6 +232,11 @@ body {
   color: white;
   border-radius: 5px;
   padding: 1%;
+}
+
+#showpage_delete_button:hover {
+  color: #00AD85;
+  background: white;
 }
 
 #return_to_albums_button_div{
@@ -308,11 +336,11 @@ ul.navbar-right {
 }*/
 
 /*SEARCH CSS*/
-
+/*
 #blank_canvas {
   background-color: white;
-  height: 600px;
-}
+  height: 140px;
+}*/
 #search_bar_form {
   text-align: center;
   padding-top: 30px;
@@ -423,6 +451,9 @@ ul.navbar-right {
 	#motown-background-image {
 		top: 200px;
 	}
+  .browse_button_div {
+    top: 360px;
+  }
 }
 
 
