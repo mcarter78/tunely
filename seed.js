@@ -375,6 +375,79 @@ var albumsList = [
                     duration: "03:08"
                   }
                 ]
+              },
+              {
+                artistName: 'Boyz II Men',
+                name: 'II',
+                releaseDate: '1994, August 30',
+                photoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/b9/BoyzIIMen-II-Cover.jpg',
+                songList: [
+                  {
+                    trackNumber: 1,
+                    title: "Thank You",
+                    duration: "04:35"
+                  },
+                  {
+                    trackNumber: 2,
+                    title: "All Around the World",
+                    duration: "04:56"
+                  },
+                  {
+                    trackNumber: 3,
+                    title: "U Know",
+                    duration: "04:46"
+                  },
+                  {
+                    trackNumber: 4,
+                    title: "Vibin'",
+                    duration: "04:28"
+                  },
+                  {
+                    trackNumber: 5,
+                    title: "I Sit Away",
+                    duration: "04:35"
+                  },
+                  {
+                    trackNumber: 6,
+                    title: "Jezzebel",
+                    duration: "06:07"
+                  },
+                  {
+                    trackNumber: 7,
+                    title: "Khalil",
+                    duration: "01:41"
+                  },
+                  {
+                    trackNumber: 8,
+                    title: "Trying Times",
+                    duration: "05:23"
+                  },
+                  {
+                    trackNumber: 9,
+                    title: "I'll Make Love to You",
+                    duration: "03:53"
+                  },
+                  {
+                    trackNumber: 10,
+                    title: "On Bended Knee",
+                    duration: "05:30"
+                  },
+                  {
+                    trackNumber: 11,
+                    title: "50 Candles",
+                    duration: "05:07"
+                  },
+                  {
+                    trackNumber: 12,
+                    title: "Water Runs Dry",
+                    duration: "03:21"
+                  },
+                  {
+                    trackNumber: 13,
+                    title: "Yesterday",
+                    duration: "03:08"
+                  },
+                ]
               }
 
 ];
