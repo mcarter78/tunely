@@ -5,12 +5,16 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var logger = require('morgan');
-
+var passport       = require('passport');
+var expressSession = require('express-session');
+var cookieParser   = require("cookie-parser");
 var routes = require('./config/routes');
 
 
-// serve static files from public folder
-
+app.use( cookieParser() );
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));

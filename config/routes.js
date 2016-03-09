@@ -11,7 +11,7 @@ var methodOverride = require('method-override');
 var logger = require('morgan');
 var albumsController = require('../controllers/albums');
 var songsController = require('../controllers/songs');
-
+var passport = require('passport');
 /*
  * HTML Endpoints
  */
@@ -46,10 +46,19 @@ router.route('/albums/:id/songs/edit')
 router.route('/albums/:id/songs')
   .get(songsController.songIndex)
   .post(songsController.createSong);
-  
+
 router.route('/albums/:id/songs/:id')
   .patch(songsController.updateSong)
   .delete(songsController.deleteSong);
+
+  app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
+
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+        successRedirect: '/',
+        failureRedirect: '/'
+    })
+  );
 
 // DeathMetal
 
